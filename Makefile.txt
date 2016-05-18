@@ -1,6 +1,0 @@
-compile: freq.c wc.c
-	gcc -o freq freq.c
-	gcc -o wc wc.c
-clean:
-	rm freq.o freq.c.orig
-	rm wc.o wc.c.orig
