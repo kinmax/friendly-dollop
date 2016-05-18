@@ -14,31 +14,36 @@ int main (void)
     scanf ("%s", fname);
     printf ("\n\n");
     arquivo = fopen(fname, "r");
+	if (arquivo == NULL)
+	{
+		printf ("\n\nNão foi possível abir o arquivo\n");
+		return 0;
+	}
     for (j = 0; j < SIZE; j++)
     {
         s[j] = 0;
     }
     while (!feof(arquivo))
     {
-	c = getc(arquivo);
-	for (j = 0; j < SIZE; j++)
-	{
-	    if (c == j)
-	    {
-		s[j]++;
-	    }
-	}
+        c = getc(arquivo);
+        for (j = 0; j < SIZE; j++)
+        {
+            if (c == j)
+            {
+                s[j]++;
+            }
+        }
     }
     for (j = 0; j < SIZE; j++)
     {
-	if (s[j] != 0)
-	{
+        if (s[j] != 0)
+        {
             printf ("%8d%4c%5x%13d\n", j, j, j, s[j]);
         }
     }
     for (j = 0; j < SIZE; j++)
-    { 
-	    total += s[j];    
+    {
+        total += s[j];
     }
     printf ("\n%8s%13d\n", "Total", total);
     fclose (arquivo);
