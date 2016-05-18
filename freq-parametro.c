@@ -2,25 +2,20 @@
 #include <stdlib.h>
 #define SIZE 256
 
-int main (void)
+int main (int argc, char* argv[])
 {
 
     FILE *arquivo;
 
-    int s[SIZE], j, total = 0, c;
-    char fname[51];
+    int s[SIZE], j, total = 0, c,i;
 
-    printf ("\nDigite o nome completo do arquivo de entrada com extensão: ");
-    scanf ("%s", fname);
     printf ("\n\n");
-    arquivo = fopen(fname, "r");
     for (j = 0; j < SIZE; j++)
     {
         s[j] = 0;
     }
-    while (!feof(arquivo))
+    for(i = 0 ; i < argc ; i++)
     {
-        c = getc(arquivo);
         for (j = 0; j < SIZE; j++)
         {
             if (c == j)
@@ -41,7 +36,6 @@ int main (void)
         total += s[j];
     }
     printf ("\n%8s%13d\n", "Total", total);
-    fclose (arquivo);
 
     return EXIT_SUCCESS;
 }
