@@ -9,12 +9,18 @@ int main (int argc, char* argv[])
 
     int s[SIZE], j, total = 0, c,i;
 
+    for (i = 0; i < argc; i++)
+    {
+        arquivo = fopen(argv[i], "r");
+    }
+
     printf ("\n\n");
     for (j = 0; j < SIZE; j++)
     {
         s[j] = 0;
     }
-    for(i = 0 ; i < argc ; i++)
+    c = getc(arquivo);
+    while (c != -1)
     {
         for (j = 0; j < SIZE; j++)
         {
@@ -23,6 +29,7 @@ int main (int argc, char* argv[])
                 s[j]++;
             }
         }
+        c = getc(arquivo);
     }
     for (j = 0; j < SIZE; j++)
     {

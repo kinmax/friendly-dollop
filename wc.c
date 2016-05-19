@@ -8,10 +8,15 @@ int main() {
     int c, cl = 0, cb = 0, cp = 0, state = OUT, i = 0;
     char fname[51];
 
-    printf ("\n Digite o nome completo do arquivo com extensão: ");
+    printf ("\nDigite o nome completo do arquivo com extensão: ");
     scanf ("%s", fname);
     printf ("\n\n");
     arquivo = fopen(fname, "r");
+    if (arquivo == NULL)
+    {
+        printf ("O arquivo não pôde ser aberto\n");
+        return 0;
+    }
     c = getc(arquivo);
 
     while (c != -1) {

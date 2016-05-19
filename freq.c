@@ -14,13 +14,18 @@ int main (void)
     scanf ("%s", fname);
     printf ("\n\n");
     arquivo = fopen(fname, "r");
+    if (arquivo == NULL)
+    {
+        printf ("O arquivo não pôde ser aberto\n");
+        return 0;
+    }
     for (j = 0; j < SIZE; j++)
     {
         s[j] = 0;
     }
-    while (!feof(arquivo))
+    c = getc(arquivo);
+    while (c != -1)
     {
-        c = getc(arquivo);
         for (j = 0; j < SIZE; j++)
         {
             if (c == j)
@@ -28,6 +33,7 @@ int main (void)
                 s[j]++;
             }
         }
+        c = getc(arquivo);
     }
     for (j = 0; j < SIZE; j++)
     {
