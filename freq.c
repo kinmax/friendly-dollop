@@ -14,18 +14,30 @@ int main (void)
     scanf ("%s", fname);
     printf ("\n\n");
     arquivo = fopen(fname, "r");
+<<<<<<< HEAD
 	if (arquivo == NULL)
 	{
 		printf ("\n\nNão foi possível abir o arquivo\n");
 		return 0;
 	}
+=======
+    if (arquivo == NULL)
+    {
+        printf ("O arquivo não pôde ser aberto\n");
+        return 0;
+    }
+>>>>>>> e0128677c0a19f119f2ace580031ff2b45c4d9f9
     for (j = 0; j < SIZE; j++)
     {
         s[j] = 0;
     }
-    while (!feof(arquivo))
+    c = getc(arquivo);
+    while (c != -1)
     {
+<<<<<<< HEAD
         c = getc(arquivo);
+=======
+>>>>>>> e0128677c0a19f119f2ace580031ff2b45c4d9f9
         for (j = 0; j < SIZE; j++)
         {
             if (c == j)
@@ -33,6 +45,10 @@ int main (void)
                 s[j]++;
             }
         }
+<<<<<<< HEAD
+=======
+        c = getc(arquivo);
+>>>>>>> e0128677c0a19f119f2ace580031ff2b45c4d9f9
     }
     for (j = 0; j < SIZE; j++)
     {
