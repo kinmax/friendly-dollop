@@ -2,7 +2,7 @@ troca: troca.c
 	cc troca.c -o troca
 
 temp: temp.c
-	cc temp.c -o temp
+	cc temp.c -lm -o temp
 
 2inteiros: 2inteiros.c
 	cc 2inteiros.c -o 2inteiros

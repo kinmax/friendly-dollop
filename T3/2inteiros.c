@@ -11,27 +11,28 @@ int main (void)
     scanf ("%s", fname);
     FILE *arquivo;
     arquivo = fopen(fname, "r");
-    while (!feof(arquivo))
+	if (arquivo == NULL)
+	{
+		printf ("\nO arquivo %s não pôde ser aberto\n", fname);
+		return 0;
+	}
+	fscanf (arquivo, "%d %d", &x, &y);
+	while (!feof(arquivo))
     {
-        fscanf (arquivo, "%d %d", &x, &y);
-        if (x > y)
+        
+        if (x >= y)
         {
             maior = x;
             menor = y;
         }
-        else if (x < y)
+        else
         {
             maior = y;
             menor = x;
         }
-        else
-        {
-            continue;
-        }
         printf ("Maior da linha: %d\n", maior);
         soma = soma + menor;
-        x = 0;
-        y = 0;
+        fscanf (arquivo, "%d %d", &x, &y);
     }
     printf ("A soma dos menores é: %d\n", soma);
     fclose(arquivo);
